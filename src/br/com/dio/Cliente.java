@@ -8,14 +8,12 @@ public class Cliente {
 
 	private String nome;
 	private String cpf;
-	private List<Conta> conta;
+	private List<Conta> contas;
 	
 	public Cliente(String nome, String cpf, List<Conta> contas) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.conta = contas;
-
-
+		this.contas = contas;
 	}
 
 	public String getNome() {
@@ -34,19 +32,24 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public List<Conta> getConta() {
-		return conta;
+	public List<Conta> getContas() {
+		return contas;
 	}
-	
-	
-	public void setConta(List<Conta> conta) {
-		this.conta = conta;
+
+	public void setConta(Conta conta) {
+		if(conta != null) {
+			this.contas.add(conta);
+		}
+		else {
+			throw new RuntimeException("Conta não pode ser nula");
+		}
+		
 	}
 
 	protected void imprimirInfosComuns() {
 		
 		System.out.println(String.format("Titular: %s", this.getNome()));
-		for (Conta c : conta) {
+		for (Conta c : contas) {
 			System.out.println(String.format("=== EXTRATO CONTA %s ===", c.getTipo()));
 			System.out.println(String.format("Titular: %s", this.getNome()));
 			System.out.println(String.format("Agência: %s", c.getAgencia()));
