@@ -2,14 +2,10 @@ package br.com.dio;
 
 public class ContaCorrente extends Conta {
 
-	public ContaCorrente(Cliente cliente) {
-		super(cliente);
-	}
-
-	@Override
-	public void imprimirExtrato() {
-		System.out.println("=== Extrato Conta Corrente ===");
-		super.imprimirInfosComuns();
+	public void imprimirExtrato(Cliente cliente) {
+		
+		cliente.imprimirInfosComuns();
+		//super.imprimirInfosComuns();
 	}
 	
 }

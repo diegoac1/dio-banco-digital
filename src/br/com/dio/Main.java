@@ -1,22 +1,27 @@
 package br.com.dio;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Cliente cliente = new Cliente();
-		cliente.setNome("Diego");
+		ArrayList<Conta> contas = new ArrayList();
 		
+		Conta cc = new ContaCorrente();
+		cc.setTipo("CORRENTE");
+		Conta cp = new ContaPoupanca();
+		cp.setTipo("POUPANCA");
 		
-		Conta cc = new ContaCorrente(cliente);
+		contas.add(cc);
+		contas.add(cp);
+		
+		Cliente cliente = new Cliente("Diego", "0000000", contas);
+		
 		cc.depositar(100);
 		
-		Conta poupanca = new ContaPoupanca(cliente);
+		cc.transferir(100, cp);
 		
-		
-		cc.transferir(100, poupanca);
-		
-		cc.imprimirExtrato();
-		poupanca.imprimirExtrato();
+		cliente.imprimirInfosComuns();
 	}
 }

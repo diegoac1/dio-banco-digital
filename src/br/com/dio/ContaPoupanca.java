@@ -2,14 +2,10 @@ package br.com.dio;
 
 public class ContaPoupanca extends Conta {
 
-	public ContaPoupanca(Cliente cliente) {
-		super(cliente);
-	}
-
 	@Override
-	public void imprimirExtrato() {
+	public void imprimirExtrato(Cliente cliente) {
 		System.out.println("=== Extrato Conta Poupança ===");
-		super.imprimirInfosComuns();
+		cliente.imprimirInfosComuns();
 		
 	}
 

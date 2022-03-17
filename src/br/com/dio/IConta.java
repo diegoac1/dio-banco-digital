@@ -8,5 +8,5 @@ public interface IConta {
 	
 	public void transferir(double valor, Conta contaDestino);
 	
-	public void imprimirExtrato();
+	public void imprimirExtrato(Cliente cliente);
 }
